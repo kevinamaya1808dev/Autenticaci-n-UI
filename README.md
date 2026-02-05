@@ -1,62 +1,70 @@
-# 🚀 Laravel Auth Boilerplate (Machote UI)
+# 🚀 Laravel 12 Auth & RBAC Boilerplate (Machote Pro)
 
-Este es un "machote" o plantilla base para proyectos de Laravel 12 que incluye un sistema de autenticación completo utilizando **Bootstrap** a través de **Laravel UI**, configurado totalmente en **español**.
+Este es un **machote** (plantilla base) avanzado para proyectos de Laravel 12. No solo incluye autenticación, sino también un sistema completo de **Control de Acceso Basado en Roles (RBAC)** y gestión de usuarios, diseñado para acelerar el desarrollo de aplicaciones empresariales.
 
-## ✨ Características
-- **Laravel 12.x** como núcleo del proyecto.
-- **Autenticación UI:** Login, Registro y Restablecimiento de contraseña listos para usar.
-- **Frontend con Bootstrap:** Estilos manejados mediante **Sass** y compilados con **Vite**.
-- **Totalmente en Español:** Validaciones, correos y vistas traducidas para el mercado local.
-- **Clean UI:** Vista de bienvenida simplificada y profesional.
+## ✨ Características Principales
+- **Laravel 12.x**: Núcleo actualizado a la última versión.
+- **Autenticación Completa**: Login, Registro y Password Reset vía `laravel/ui`.
+- **Gestión de Usuarios (CRUD)**: Módulo administrativo para crear, editar, listar y eliminar usuarios.
+- **Roles y Permisos**: Integración profesional con **Spatie Laravel-Permission**.
+- **Interfaz Dinámica**:
+  - Menú de navegación que se adapta según el rol del usuario.
+  - Dashboard personalizado con saludos y accesos directos por rol.
+  - Uso de *Badges* y alertas de Bootstrap 5 para una mejor experiencia.
+- **Totalmente en Español**: Traducciones integradas en validaciones, vistas y mensajes de sistema.
 
 ## 🛠️ Requisitos de Instalación
-Si decides clonar este machote para un nuevo proyecto, sigue estos pasos:
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone [https://github.com/kevinamaya1808dev/Autenticaci-n-UI.git] nombre-de-tu-proyecto
-   cd nombre-de-tu-proyecto
+Si deseas usar este machote para un nuevo proyecto, sigue estos pasos:
 
-2. **Instalar dependencias de PHP y Node.js**
+### 1. Clonar y Preparar
+```bash
+git clone [https://github.com/kevinamaya1808dev/Autenticaci-n-UI.git](https://github.com/kevinamaya1808dev/Autenticaci-n-UI.git) nombre-de-tu-proyecto
+cd nombre-de-tu-proyecto
+2. Instalar Dependencias
 Bash
 composer install
 npm install
-3. **Configurar variables de entorno**
-Copia el archivo de ejemplo y genera la clave de seguridad:
+3. Configuración de Entorno
+Copia el archivo .env, genera la clave y configura tu base de datos:
 
 Bash
 cp .env.example .env
 php artisan key:generate
-Nota: No olvides configurar tus credenciales de base de datos en el archivo .env recién creado.
+4. Base de Datos y Roles
+Este paso es vital para que el sistema reconozca los roles de Administrador y Usuario:
 
-4. **Compilar Assets y Migrar**
 Bash
+php artisan migrate --seed
 npm run build
-php artisan migrate
-5. Iniciar Servidor
+5. Iniciar Aplicación
 Bash
 php artisan serve
-📂 Estructura del Machote
-lang/es/: Contiene todas las traducciones de validaciones y autenticación.
+🔑 Credenciales por Defecto (Seeders)
+Usuario: admin@gmail.com
 
-resources/sass/app.scss: Punto de entrada para personalizar los estilos de Bootstrap.
+Password: admin123
 
-resources/views/auth/: Vistas de autenticación adaptadas al español.
+📂 Módulos Incluidos
+Usuarios: Listado con paginación, asignación de roles y validaciones avanzadas.
 
-resources/views/layouts/app.blade.php: Plantilla principal con @vite configurado para Sass.
+Seguridad: Middleware de rutas para restringir el acceso a usuarios no autorizados.
 
-📝 **Notas del Desarrollador**
-Este proyecto sirve como base sólida para proyectos escalables, asegurando que la configuración inicial de idioma y estilos no sea una tarea repetitiva. Ideal para proyectos como sistemas POS o aplicaciones de e-commerce.
+UI/UX: Layout principal con @vite, Sass y componentes de Bootstrap 5.
 
-Desarrollado por Kevin Amaya
+Desarrollado por Kevin Amaya - Ideal para sistemas POS (como Kairos) y E-commerce.
 
 
 ---
 
-### ¿Cómo guardarlo ahora mismo?
-Una vez que pegues esto en tu archivo y lo guardes en VS Code, ejecuta esto para que tu perfil de GitHub se vea increíble:
+### ¿Cómo aplicarlo ahora mismo?
+
+1.  Abre tu archivo `README.md` en VS Code.
+2.  Borra todo lo que tiene y pega este nuevo código.
+3.  Guarda el archivo.
+4.  Ejecuta estos comandos en tu terminal para subirlo:
 
 ```powershell
 git add README.md
-git commit -m "docs: actualización final del README con instrucciones de uso"
+git commit -m "docs: actualización final del README con módulos de usuarios y roles"
 git push origin main
