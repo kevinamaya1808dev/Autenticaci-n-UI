@@ -43,7 +43,7 @@ php artisan serve
 🔑 Credenciales por Defecto (Seeders)
 Usuario: admin@gmail.com
 
-Password: admin123
+Password: 12345678
 
 📂 Módulos Incluidos
 Usuarios: Listado con paginación, asignación de roles y validaciones avanzadas.
