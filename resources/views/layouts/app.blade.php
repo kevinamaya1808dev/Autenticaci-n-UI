@@ -25,7 +25,22 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto"></ul>
+                    <ul class="navbar-nav me-auto">
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+                            </li>
+
+                            {{-- SOLO EL ADMIN PUEDE VER ESTE MENÚ --}}
+                            @hasrole('Administrador')
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold text-primary" href="{{ route('users.index') }}">
+                                        {{ __('Gestión de Usuarios') }}
+                                    </a>
+                                </li>
+                            @endhasrole
+                        @endauth
+                    </ul>
 
                     <ul class="navbar-nav ms-auto">
                         @guest
@@ -43,7 +58,8 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->name }} 
+                                    <span class="badge bg-secondary small">{{ Auth::user()->getRoleNames()->first() }}</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
