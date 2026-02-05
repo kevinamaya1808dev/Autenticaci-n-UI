@@ -52,7 +52,7 @@ Seguridad: Middleware de rutas para restringir el acceso a usuarios no autorizad
 
 UI/UX: Layout principal con @vite, Sass y componentes de Bootstrap 5.
 
-Desarrollado por Kevin Amaya - Ideal para sistemas POS (como Kairos) y E-commerce.
+Desarrollado por Kevin Amaya 
 
 
 ---
