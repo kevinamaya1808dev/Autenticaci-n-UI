@@ -13,13 +13,17 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+   public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Creamos tu usuario administrador de una vez
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('12345678'), 
         ]);
+        
+        // Opcional: Si en el futuro quieres 10 usuarios de prueba extra, 
+        // solo tendrías que descomentar la línea de abajo:
+        // User::factory(10)->create();
     }
 }
