@@ -54,7 +54,8 @@ public function store(Request $request)
     // Muestra el formulario con los datos del usuario
 public function edit(User $user)
 {
-    return view('users.edit', compact('user'));
+    $roles = \Spatie\Permission\Models\Role::all(); // Esto trae "Administrador" y "Usuario"
+    return view('users.edit', compact('user', 'roles'));
 }
 
    // Procesa el cambio en la base de datos
@@ -63,7 +64,7 @@ public function update(Request $request, User $user)
     $request->validate([
         'name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-        'password' => 'nullable|string|min:8|confirmed', // Contraseña opcional al editar
+        'password' => 'nullable|string|min:8|confirmed',
     ]);
 
     $user->name = $request->name;
@@ -75,7 +76,10 @@ public function update(Request $request, User $user)
 
     $user->save();
 
-    return redirect()->route('users.index')->with('status', 'Usuario actualizado correctamente.');
+    // ESTA LÍNEA ES LA NUEVA: Sincroniza el rol seleccionado
+    $user->syncRoles($request->role); 
+
+    return redirect()->route('users.index')->with('status', 'Usuario y rol actualizados.');
 }
 
     public function destroy(User $user)

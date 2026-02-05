@@ -29,6 +29,21 @@
                     <input type="password" name="password_confirmation" class="form-control">
                 </div>
 
+                <div class="mb-3">
+    <label for="role" class="form-label">Asignar Rol</label>
+    <select name="role" id="role" class="form-select">
+        <option value="">-- Seleccionar Rol --</option>
+        @foreach($roles as $role)
+            <option value="{{ $role->name }}" {{ $user->hasRole($role->name) ? 'selected' : '' }}>
+                {{ $role->name }}
+            </option>
+        @endforeach
+    </select>
+</div>
+
+
+
+
                 <button type="submit" class="btn btn-success">Actualizar Datos</button>
                 <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
