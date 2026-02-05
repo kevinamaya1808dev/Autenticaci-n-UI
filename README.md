@@ -56,15 +56,3 @@ Desarrollado por Kevin Amaya
 
 
 ---
-
-### ¿Cómo aplicarlo ahora mismo?
-
-1.  Abre tu archivo `README.md` en VS Code.
-2.  Borra todo lo que tiene y pega este nuevo código.
-3.  Guarda el archivo.
-4.  Ejecuta estos comandos en tu terminal para subirlo:
-
-```powershell
-git add README.md
-git commit -m "docs: actualización final del README con módulos de usuarios y roles"
-git push origin main
